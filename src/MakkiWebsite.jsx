@@ -87,7 +87,7 @@ export default function MakkiWebsite() {
         )}
         {publications.length > 5 && (
           <div className="mt-4 text-right">
-            <Link to="/publications" className="text-blue-800 underline">View all publications</Link>
+            <a href="/publications.html" className="text-blue-800 underline">View all publications</a>
           </div>
         )}
       </section>
