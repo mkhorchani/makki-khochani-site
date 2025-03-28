@@ -22,7 +22,7 @@ export default function MakkiWebsite() {
       {/* Header with Profile Info */}
       <header className="flex items-center gap-4 mb-12">
         <img
-          src="/makki.jpg"
+          src="/data/makki.jpg"
           alt="Makki Khochani"
           className="w-20 h-20 rounded-full border-4 border-yellow-300 object-cover"
         />
