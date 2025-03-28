@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Github, BookOpen, Globe, BarChart2, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
 
 export default function MakkiWebsite() {
   const [metrics, setMetrics] = useState(null);
