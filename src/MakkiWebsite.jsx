@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Github, BookOpen, Globe, BarChart2, Calendar } from "lucide-react";
+import { Github, BookOpen, Globe, BarChart2 } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 
 export default function MakkiWebsite() {
   const [metrics, setMetrics] = useState(null);
@@ -17,15 +18,26 @@ export default function MakkiWebsite() {
 
   const recentPublications = publications.slice(0, 5);
 
+  const citationData = metrics?.citations_by_year || [];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative">
+    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-[url('/makki-khochani-site/data/desert-bg.svg')] bg-no-repeat bg-bottom bg-contain">
       {/* Header with Profile Info */}
-      <header className="flex items-center gap-4 mb-12">
-        <img
-          src={`${import.meta.env.BASE_URL}data/makki.jpg`}
-          alt="Makki Khochani"
-          className="w-20 h-20 rounded-full border-4 border-yellow-300 object-cover"
-        />
+      <header className="flex items-start gap-6 mb-12">
+        <div className="flex flex-col items-center">
+          <img
+            src={`${import.meta.env.BASE_URL}data/makki.jpg`}
+            alt="Makki Khochani"
+            className="w-28 h-28 rounded-full border-4 border-yellow-300 object-cover"
+          />
+          <div className="mt-4 space-y-2 text-sm">
+            <a href="https://scholar.google.com/citations?user=btji37cAAAAJ" target="_blank" className="block text-blue-800 hover:underline">Google Scholar</a>
+            <a href="https://www.researchgate.net/profile/Makki-Khorchani?ev=hdr_xprf" target="_blank" className="block text-blue-800 hover:underline">ResearchGate</a>
+            <a href="https://orcid.org/0000-0001-9379-7052" target="_blank" className="block text-blue-800 hover:underline">ORCID</a>
+            <a href="https://github.com/mkhorchani" target="_blank" className="block text-blue-800 hover:underline">GitHub</a>
+            <a href="https://snr.unl.edu/aboutus/who/people/faculty-member.aspx?pid=2713" target="_blank" className="block text-blue-800 hover:underline">UNL Profile</a>
+          </div>
+        </div>
         <div>
           <h1 className="text-3xl font-bold">Makki Khochani</h1>
           <p className="text-sm">Research Assistant Professor</p>
@@ -36,7 +48,7 @@ export default function MakkiWebsite() {
 
       {/* Citation Metrics Box */}
       {metrics && (
-        <div className="absolute top-4 right-4 w-72 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2">
+        <div className="absolute top-4 right-4 w-80 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2">
           <h3 className="text-center font-bold text-md mb-1 flex items-center justify-center gap-1">
             <BarChart2 className="w-4 h-4" /> Citation Metrics
           </h3>
@@ -53,6 +65,15 @@ export default function MakkiWebsite() {
               <p>{metrics.i10_index}</p>
             </div>
           </div>
+          {citationData.length > 0 && (
+            <ResponsiveContainer width="100%" height={80}>
+              <BarChart data={citationData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <XAxis dataKey="year" hide />
+                <YAxis hide />
+                <Bar dataKey="citations" fill="#fbbf24" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          )}
         </div>
       )}
 
@@ -97,28 +118,6 @@ export default function MakkiWebsite() {
         <p>
           You can explore and use code from my work on <a href="https://github.com/mkhorchani" target="_blank" className="underline text-blue-700">GitHub</a>.
         </p>
-      </section>
-
-      {/* Profile Links Section */}
-      <section className="my-8 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-4">Profiles</h2>
-        <div className="flex flex-wrap gap-4">
-          <a href="https://scholar.google.com/citations?user=btji37cAAAAJ" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
-            <BookOpen className="w-4 h-4" /> Google Scholar
-          </a>
-          <a href="https://www.researchgate.net/profile/Makki-Khorchani?ev=hdr_xprf" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
-            <BookOpen className="w-4 h-4" /> ResearchGate
-          </a>
-          <a href="https://orcid.org/0000-0001-9379-7052" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
-            <Globe className="w-4 h-4" /> ORCID
-          </a>
-          <a href="https://github.com/mkhorchani" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
-            <Github className="w-4 h-4" /> GitHub
-          </a>
-          <a href="https://snr.unl.edu/aboutus/who/people/faculty-member.aspx?pid=2713" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
-            <Globe className="w-4 h-4" /> University Profile
-          </a>
-        </div>
       </section>
 
       <footer className="text-center text-sm text-gray-600 mt-12">
