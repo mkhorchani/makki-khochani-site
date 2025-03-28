@@ -101,7 +101,12 @@ export default function MakkiWebsite() {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={citationData}>
                   <XAxis dataKey="year" fontSize={10} tickLine={false} axisLine={false} />
-                  <YAxis label={{ value: 'Number of citations', angle: -90, position: 'insideLeft', offset: 5 }} ticks={[40, 80, 120, 160]} domain={[0, 160]} />
+                  <YAxis
+			label={{ value: 'Citations', angle: -90, position: 'insideLeft', offset: 5 }}
+			ticks={[40, 80, 120, 160]}
+  				domain={[0, 160]}
+  				tick={{ fontSize: 10 }}
+		  />
                   <Bar dataKey="citations" fill="#D97706" radius={[4, 4, 0, 0]} barSize={10} />
                 </BarChart>
               </ResponsiveContainer>
@@ -112,10 +117,10 @@ export default function MakkiWebsite() {
 
       {/* Story Section */}
       <section className="mt-0 mb-2 max-w-3xl mx-auto">
-  <h2 className="text-2xl font-semibold mb-4">Story</h2>
-  <p className="text-md">
-    Temporary placeholder story text. This section will eventually tell Makki’s journey and scientific focus in greater detail.
-  </p>
+        <h2 className="text-2xl font-semibold mb-4">Story</h2>
+        <p className="text-md">
+          I am a Research Assistant Professor at the University of Nebraska–Lincoln, passionate about understanding how ecosystems and climate interact. My work aims to find sustainable, data-driven solutions that balance environmental health with human needs — particularly in arid and semi-arid regions. My research combines satellite remote sensing, field experiments, and environmental modeling to measure real evapotranspiration, estimate ecosystem productivity, and guide climate-smart decision-making.
+        </p>
       </section>
 
       {/* Publications Preview Section */}
