@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>All Publications | Makki Khochani</title>
+    <script defer>
+      async function loadPublications() {
+        const res = await fetch("data/publications.json");
+        const publications = await res.json();
+
+        const container = document.getElementById("pub-list");
+
+        publications.forEach((pub) => {
+          const li = document.createElement("li");
+          li.className = "bg-white p-4 rounded-xl shadow";
+          li.innerHTML = `
+            <a href="${pub.publisher_url || pub.url}" target="_blank" class="text-lg font-semibold text-blue-700 hover:underline">
+              ${pub.title}
+            </a>
+            <p class="text-sm text-gray-700 italic">${pub.authors}</p>
+            <p class="text-sm text-gray-700">${pub.journal || ""} (${pub.year || ""})</p>
+          `;
+          container.appendChild(li);
+        });
+      }
+
+      window.onload = loadPublications;
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800">
+    <header class="max-w-4xl mx-auto mb-8">
+      <a href="/" class="text-blue-700 underline text-sm">← Back to Home</a>
+      <h1 class="text-3xl font-bold mt-2">All Publications</h1>
+    </header>
+
+    <main class="max-w-4xl mx-auto">
+      <ul id="pub-list" class="space-y-4"></ul>
+    </main>
+
+    <footer class="text-center text-sm text-gray-600 mt-12">
+      <p>© <script>document.write(new Date().getFullYear())</script> Makki Khochani</p>
+    </footer>
+  </body>
+</html>
+
