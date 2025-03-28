@@ -24,7 +24,7 @@ export default function MakkiWebsite() {
       className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-no-repeat bg-bottom bg-contain"
     >
       {/* Header with Profile Info */}
-      <header className="flex items-start gap-6 mb-12">
+      <header className="flex items-start gap-6 mb-4">
         <div className="flex flex-col items-center">
           <img
             src={`${import.meta.env.BASE_URL}data/makki.jpg`}
@@ -77,46 +77,8 @@ export default function MakkiWebsite() {
         </div>
       </header>
 
-      {/* Citation Metrics Box */}
-      {metrics && (
-        <div className="absolute top-4 right-4 w-72 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2">
-          <h3 className="text-center font-bold text-md mb-1 flex items-center justify-center gap-1">
-            <BarChart2 className="w-4 h-4" /> Citation Metrics
-          </h3>
-          <div className="grid grid-cols-2 gap-3 text-xs">
-            <div>
-              <p className="font-semibold">Citations</p>
-              <p>All time: {metrics.citations}</p>
-              <p>Since 2019: {metrics.citations5y}</p>
-            </div>
-            <div>
-              <p className="font-semibold">h-index</p>
-              <p>{metrics.h_index}</p>
-              <p className="font-semibold mt-2">i10-index</p>
-              <p>{metrics.i10_index}</p>
-            </div>
-          </div>
-          {citationData.length > 0 && (
-            <div className="h-40 pt-2">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={citationData}>
-                  <XAxis dataKey="year" fontSize={10} tickLine={false} axisLine={false} />
-                  <YAxis
-			label={{ value: 'Citations', angle: -90, position: 'insideLeft', offset: 5 }}
-			ticks={[40, 80, 120, 160]}
-  				domain={[0, 160]}
-  				tick={{ fontSize: 10 }}
-		  />
-                  <Bar dataKey="citations" fill="#D97706" radius={[4, 4, 0, 0]} barSize={10} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          )}
-        </div>
-      )}
-
       {/* Story Section */}
-      <section className="mt-0 mb-2 max-w-3xl mx-auto">
+      <section className="mt-4 mb-2 max-w-3xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4">Story</h2>
         <p className="text-md">
           I am a Research Assistant Professor at the University of Nebraska–Lincoln, passionate about understanding how ecosystems and climate interact. My work aims to find sustainable, data-driven solutions that balance environmental health with human needs — particularly in arid and semi-arid regions. My research combines satellite remote sensing, field experiments, and environmental modeling to measure real evapotranspiration, estimate ecosystem productivity, and guide climate-smart decision-making.
@@ -155,6 +117,50 @@ export default function MakkiWebsite() {
           </div>
         )}
       </section>
+
+      {/* Citation Metrics Box */}
+      {metrics && (
+        <div className="absolute top-4 right-4 w-72 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2">
+          <h3 className="text-center font-bold text-md mb-1 flex items-center justify-center gap-1">
+            <BarChart2 className="w-4 h-4" /> Citation Metrics
+          </h3>
+          <div className="grid grid-cols-2 gap-3 text-xs">
+            <div>
+              <p className="font-semibold">Citations</p>
+              <p>All time: {metrics.citations}</p>
+              <p>Since 2019: {metrics.citations5y}</p>
+            </div>
+            <div>
+              <p className="font-semibold">h-index</p>
+              <p>{metrics.h_index}</p>
+              <p className="font-semibold mt-2">i10-index</p>
+              <p>{metrics.i10_index}</p>
+            </div>
+          </div>
+          {citationData.length > 0 && (
+            <div className="h-40 pt-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={citationData}>
+                  <XAxis dataKey="year" fontSize={10} tickLine={false} axisLine={false} />
+                  <YAxis
+                    label={{
+                      value: 'Citations',
+                      angle: -90,
+                      position: 'insideLeft',
+                      offset: 0,
+                      style: { textAnchor: 'middle' }
+                    }}
+                    ticks={[40, 80, 120, 160]}
+                    domain={[0, 160]}
+                    tick={{ fontSize: 10 }}
+                  />
+                  <Bar dataKey="citations" fill="#D97706" radius={[4, 4, 0, 0]} barSize={10} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          )}
+        </div>
+      )}
 
       <footer className="text-center text-sm text-gray-600 mt-12">
         <p>© {new Date().getFullYear()} Makki Khochani</p>
