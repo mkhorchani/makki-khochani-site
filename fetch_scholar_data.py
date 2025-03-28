@@ -6,6 +6,7 @@ scholar_id = "btji37cAAAAJ"
 author = scholarly.search_author_id(scholar_id)
 author = scholarly.fill(author, sections=["basics", "indices", "publications"])
 
+# Write citation metrics
 metrics = {
     "name": author.get("name"),
     "h_index": author.get("hindex"),
@@ -18,17 +19,24 @@ metrics = {
 with open("public/data/metrics.json", "w") as f:
     json.dump(metrics, f, indent=2)
 
-pubs = []
+# Get publication data
+publications = []
 for pub in author.get("publications", []):
-    p = scholarly.fill(pub)
-    pubs.append({
-        "title": p.get("bib", {}).get("title"),
-        "authors": p.get("bib", {}).get("author"),
-        "journal": p.get("bib", {}).get("journal"),
-        "year": p.get("bib", {}).get("pub_year"),
-        "url": f"https://scholar.google.com/scholar?oi=bibs&hl=en&q={p.get('bib', {}).get('title', '').replace(' ', '+')}"
+    pub_details = scholarly.fill(pub)
+    bib = pub_details.get("bib", {})
+    publications.append({
+        "title": bib.get("title"),
+        "authors": bib.get("author"),
+        "journal": bib.get("journal"),
+        "year": bib.get("pub_year"),
+        "publisher_url": bib.get("url"),
+        "url": f"https://scholar.google.com/scholar?oi=bibs&hl=en&q={bib.get('title', '').replace(' ', '+')}"
     })
 
+# Sort publications by year (most recent first)
+publications = sorted(publications, key=lambda p: int(p["year"]) if p["year"] else 0, reverse=True)
+
+# Write to publications.json
 with open("public/data/publications.json", "w") as f:
-    json.dump(pubs, f, indent=2)
+    json.dump(publications, f, indent=2)
 
