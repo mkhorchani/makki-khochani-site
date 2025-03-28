@@ -120,7 +120,7 @@ export default function MakkiWebsite() {
 
       {/* Citation Metrics Box */}
       {metrics && (
-        <div className="absolute top-4 right-4 w-72 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2">
+        <div className="md:absolute md:top-4 md:right-4 w-full md:w-72 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2 mt-4 md:mt-0">
           <h3 className="text-center font-bold text-md mb-1 flex items-center justify-center gap-1">
             <BarChart2 className="w-4 h-4" /> Citation Metrics
           </h3>
