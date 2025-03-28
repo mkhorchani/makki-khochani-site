@@ -21,7 +21,7 @@ export default function MakkiWebsite() {
   const citationData = metrics?.citations_by_year || [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-[url('/makki-khochani-site/data/desert-bg.svg')] bg-no-repeat bg-bottom bg-contain">
+    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative">
       {/* Header with Profile Info */}
       <header className="flex items-start gap-6 mb-12">
         <div className="flex flex-col items-center">
@@ -30,12 +30,22 @@ export default function MakkiWebsite() {
             alt="Makki Khochani"
             className="w-28 h-28 rounded-full border-4 border-yellow-300 object-cover"
           />
-          <div className="mt-4 space-y-2 text-sm">
-            <a href="https://scholar.google.com/citations?user=btji37cAAAAJ" target="_blank" className="block text-blue-800 hover:underline">Google Scholar</a>
-            <a href="https://www.researchgate.net/profile/Makki-Khorchani?ev=hdr_xprf" target="_blank" className="block text-blue-800 hover:underline">ResearchGate</a>
-            <a href="https://orcid.org/0000-0001-9379-7052" target="_blank" className="block text-blue-800 hover:underline">ORCID</a>
-            <a href="https://github.com/mkhorchani" target="_blank" className="block text-blue-800 hover:underline">GitHub</a>
-            <a href="https://snr.unl.edu/aboutus/who/people/faculty-member.aspx?pid=2713" target="_blank" className="block text-blue-800 hover:underline">UNL Profile</a>
+          <div className="mt-4 flex flex-col items-start gap-2 text-sm">
+            <a href="https://scholar.google.com/citations?user=btji37cAAAAJ" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+              <BookOpen className="w-4 h-4" /> Google Scholar
+            </a>
+            <a href="https://www.researchgate.net/profile/Makki-Khorchani?ev=hdr_xprf" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+              <BookOpen className="w-4 h-4" /> ResearchGate
+            </a>
+            <a href="https://orcid.org/0000-0001-9379-7052" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+              <Globe className="w-4 h-4" /> ORCID
+            </a>
+            <a href="https://github.com/mkhorchani" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+              <Github className="w-4 h-4" /> GitHub
+            </a>
+            <a href="https://snr.unl.edu/aboutus/who/people/faculty-member.aspx?pid=2713" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+              <Globe className="w-4 h-4" /> UNL Profile
+            </a>
           </div>
         </div>
         <div>
@@ -66,13 +76,15 @@ export default function MakkiWebsite() {
             </div>
           </div>
           {citationData.length > 0 && (
-            <ResponsiveContainer width="100%" height={80}>
-              <BarChart data={citationData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-                <XAxis dataKey="year" hide />
-                <YAxis hide />
-                <Bar dataKey="citations" fill="#fbbf24" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+            <div className="h-24">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={citationData}>
+                  <XAxis dataKey="year" fontSize={10} tickLine={false} axisLine={false} />
+                  <YAxis hide />
+                  <Bar dataKey="citations" fill="#fbbf24" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           )}
         </div>
       )}
@@ -110,14 +122,6 @@ export default function MakkiWebsite() {
             <a href="publications.html" className="text-blue-800 underline">View all publications</a>
           </div>
         )}
-      </section>
-
-      {/* Code Section */}
-      <section className="my-8 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-4">Code & Tools</h2>
-        <p>
-          You can explore and use code from my work on <a href="https://github.com/mkhorchani" target="_blank" className="underline text-blue-700">GitHub</a>.
-        </p>
       </section>
 
       <footer className="text-center text-sm text-gray-600 mt-12">
