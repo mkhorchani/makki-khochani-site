@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "title": "Example Publication Title",
+    "authors": "Makki Khochani, Coauthor Name",
+    "journal": "Journal of Climate & Ecosystems",
+    "year": "2024",
+    "url": "https://example.com"
+  }
+]
+
