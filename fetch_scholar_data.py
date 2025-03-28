@@ -38,8 +38,15 @@ for pub in author.get("publications", []):
         "url": f"https://scholar.google.com/scholar?oi=bibs&hl=en&q={bib.get('title', '').replace(' ', '+')}"
     })
 
-# Sort publications by year (most recent first)
-publications = sorted(publications, key=lambda p: int(p["year"]) if p["year"] else 0, reverse=True)
+# Sort publications by year descending (handle missing or non-numeric years safely)
+def parse_year(p):
+    try:
+        return int(p["year"])
+    except (TypeError, ValueError):
+        return 0
+
+publications = sorted(publications, key=parse_year, reverse=True)
+
 
 # Write to publications.json
 with open("public/data/publications.json", "w") as f:
