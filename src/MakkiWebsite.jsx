@@ -22,7 +22,7 @@ export default function MakkiWebsite() {
   return (
     <div
       className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-no-repeat bg-bottom bg-contain"
-      style={{ backgroundImage: `url('/makki-khochani-site/data/desert-bg.svg')` }}
+      }
     >
       {/* Header with Profile Info */}
       <header className="flex items-start gap-6 mb-12">
@@ -80,7 +80,7 @@ export default function MakkiWebsite() {
 
       {/* Citation Metrics Box */}
       {metrics && (
-        <div className="absolute top-4 right-4 w-96 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2">
+        <div className="absolute top-4 right-4 w-72 bg-white rounded-xl shadow-lg border border-yellow-300 p-4 text-sm space-y-2">
           <h3 className="text-center font-bold text-md mb-1 flex items-center justify-center gap-1">
             <BarChart2 className="w-4 h-4" /> Citation Metrics
           </h3>
@@ -102,8 +102,8 @@ export default function MakkiWebsite() {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={citationData}>
                   <XAxis dataKey="year" fontSize={10} tickLine={false} axisLine={false} />
-                  <YAxis hide />
-                  <Bar dataKey="citations" fill="#D97706" radius={[4, 4, 0, 0]} />
+                  <YAxis label={{ value: 'Number of citations', angle: -90, position: 'insideLeft', offset: 5 }} ticks={[40, 80, 120, 160]} domain={[0, 160]} />
+                  <Bar dataKey="citations" fill="#D97706" radius={[4, 4, 0, 0]} barSize={10} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -112,11 +112,11 @@ export default function MakkiWebsite() {
       )}
 
       {/* Story Section */}
-      <section className="mt-2 mb-2 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-4">Story</h2>
-        <p className="text-md">
-          I work on the interaction between ecosystems and climate and I try to look for the best equilibrium between the two.
-        </p>
+      <section className="mt-0 mb-2 max-w-3xl mx-auto">
+  <h2 className="text-2xl font-semibold mb-4">Story</h2>
+  <p className="text-md">
+    Temporary placeholder story text. This section will eventually tell Makki’s journey and scientific focus in greater detail.
+  </p>
       </section>
 
       {/* Publications Preview Section */}
