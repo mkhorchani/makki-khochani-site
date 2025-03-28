@@ -22,7 +22,7 @@ export default function MakkiWebsite() {
       {/* Header with Profile Info */}
       <header className="flex items-center gap-4 mb-12">
         <img
-          src="/data/makki.jpg"
+          src="/makki-khochani-site/data/makki.jpg"
           alt="Makki Khochani"
           className="w-20 h-20 rounded-full border-4 border-yellow-300 object-cover"
         />
@@ -86,7 +86,7 @@ export default function MakkiWebsite() {
         )}
         {publications.length > 5 && (
           <div className="mt-4 text-right">
-            <a href="/publications.html" className="text-blue-800 underline">View all publications</a>
+            <a href="publications.html" className="text-blue-800 underline">View all publications</a>
           </div>
         )}
       </section>
