@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Github, Linkedin, BookOpen, Globe } from "lucide-react";
 
 export default function MakkiWebsite() {
@@ -8,11 +6,11 @@ export default function MakkiWebsite() {
   const [publications, setPublications] = useState([]);
 
   useEffect(() => {
-    fetch("/data/metrics.json")
+    fetch("data/metrics.json")
       .then((res) => res.json())
       .then((data) => setMetrics(data));
 
-    fetch("/data/publications.json")
+    fetch("data/publications.json")
       .then((res) => res.json())
       .then((data) => setPublications(data));
   }, []);
@@ -28,24 +26,20 @@ export default function MakkiWebsite() {
 
       {/* Citation Metrics Box in Top Right Corner */}
       {metrics && (
-        <div className="absolute top-4 right-4 w-64">
-          <Card className="shadow-lg">
-            <CardContent className="grid grid-cols-1 gap-2 text-center p-4 text-sm">
-              <div>
-                <p className="font-bold">Citations</p>
-                <p>All: {metrics.citations}</p>
-                <p>Since 2019: {metrics.citations5y}</p>
-              </div>
-              <div>
-                <p className="font-bold">h-index</p>
-                <p>{metrics.h_index}</p>
-              </div>
-              <div>
-                <p className="font-bold">i10-index</p>
-                <p>{metrics.i10_index}</p>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="absolute top-4 right-4 w-64 bg-white rounded-xl shadow-lg p-4 text-sm">
+          <div className="text-center">
+            <p className="font-bold">Citations</p>
+            <p>All: {metrics.citations}</p>
+            <p>Since 2019: {metrics.citations5y}</p>
+          </div>
+          <div className="text-center mt-2">
+            <p className="font-bold">h-index</p>
+            <p>{metrics.h_index}</p>
+          </div>
+          <div className="text-center mt-2">
+            <p className="font-bold">i10-index</p>
+            <p>{metrics.i10_index}</p>
+          </div>
         </div>
       )}
 
@@ -79,32 +73,22 @@ export default function MakkiWebsite() {
 
       <section className="my-8 max-w-3xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4">Profiles</h2>
-        <div className="flex gap-4 flex-wrap">
-          <Button variant="outline" asChild>
-            <a href="https://scholar.google.com/citations?user=btji37cAAAAJ" target="_blank">
-              <BookOpen className="mr-2" /> Google Scholar
-            </a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a href="https://www.researchgate.net" target="_blank">
-              <BookOpen className="mr-2" /> ResearchGate
-            </a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a href="https://orcid.org" target="_blank">
-              <Globe className="mr-2" /> ORCID
-            </a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a href="https://github.com" target="_blank">
-              <Github className="mr-2" /> GitHub
-            </a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a href="https://your-university.edu/profile" target="_blank">
-              <Globe className="mr-2" /> University Profile
-            </a>
-          </Button>
+        <div className="flex flex-wrap gap-4">
+          <a href="https://scholar.google.com/citations?user=btji37cAAAAJ" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+            <BookOpen className="w-4 h-4" /> Google Scholar
+          </a>
+          <a href="https://www.researchgate.net" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+            <BookOpen className="w-4 h-4" /> ResearchGate
+          </a>
+          <a href="https://orcid.org" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+            <Globe className="w-4 h-4" /> ORCID
+          </a>
+          <a href="https://github.com" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+            <Github className="w-4 h-4" /> GitHub
+          </a>
+          <a href="https://your-university.edu/profile" target="_blank" className="px-4 py-2 border rounded-lg shadow hover:bg-blue-100 flex items-center gap-2">
+            <Globe className="w-4 h-4" /> University Profile
+          </a>
         </div>
       </section>
 
@@ -114,3 +98,4 @@ export default function MakkiWebsite() {
     </div>
   );
 }
+
