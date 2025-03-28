@@ -22,7 +22,6 @@ export default function MakkiWebsite() {
   return (
     <div
       className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-no-repeat bg-bottom bg-contain"
-      }
     >
       {/* Header with Profile Info */}
       <header className="flex items-start gap-6 mb-12">
