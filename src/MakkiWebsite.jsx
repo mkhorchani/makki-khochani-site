@@ -20,7 +20,7 @@ export default function MakkiWebsite() {
   const citationData = metrics?.citations_by_year || [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-[url\('${import.meta.env.BASE_URL}data/desert-bg.svg'\)] bg-no-repeat bg-bottom bg-contain">
+    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-no-repeat bg-bottom bg-contain" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}data/desert-bg.svg)` }}>
       {/* Header with Profile Info */}
       <header className="flex items-start gap-6 mb-12">
         <div className="flex flex-col items-center">
