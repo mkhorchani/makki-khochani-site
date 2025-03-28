@@ -22,7 +22,7 @@ export default function MakkiWebsite() {
       {/* Header with Profile Info */}
       <header className="flex items-center gap-4 mb-12">
         <img
-          src="/makki-khochani-site/data/makki.jpg"
+          src="/data/makki.jpg"
           alt="Makki Khochani"
           className="w-20 h-20 rounded-full border-4 border-yellow-300 object-cover"
         />
@@ -60,7 +60,7 @@ export default function MakkiWebsite() {
       <section className="my-8 max-w-3xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4">Story</h2>
         <p className="text-md">
-          I work on the interaction between ecosystems and climate and I try to look for the best equilibrium between the two.
+          I work on the interaction between ecosystems and climate, and I try to find the best equilibrium between the two.
         </p>
       </section>
 
