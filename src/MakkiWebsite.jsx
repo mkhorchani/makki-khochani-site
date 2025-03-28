@@ -20,7 +20,7 @@ export default function MakkiWebsite() {
   const citationData = metrics?.citations_by_year || [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-[url('/makki-khochani-site/data/desert-bg.svg')] bg-no-repeat bg-bottom bg-contain">
+    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-200 p-4 text-brown-800 relative bg-[url\('${import.meta.env.BASE_URL}data/desert-bg.svg'\)] bg-no-repeat bg-bottom bg-contain">
       {/* Header with Profile Info */}
       <header className="flex items-start gap-6 mb-12">
         <div className="flex flex-col items-center">
@@ -89,7 +89,7 @@ export default function MakkiWebsite() {
       )}
 
       {/* Story Section */}
-      <section className="mt-4 mb-4 max-w-3xl mx-auto">
+      <section className="mt-2 mb-2 max-w-3xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4">Story</h2>
         <p className="text-md">
           I work on the interaction between ecosystems and climate and I try to look for the best equilibrium between the two.
@@ -97,7 +97,7 @@ export default function MakkiWebsite() {
       </section>
 
       {/* Publications Preview Section */}
-      <section className="mb-12 max-w-3xl mx-auto">
+      <section className="mb-8 max-w-3xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4">Recent Publications</h2>
         {recentPublications.length > 0 ? (
           <ul className="space-y-4">
