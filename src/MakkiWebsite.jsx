@@ -28,7 +28,7 @@ export default function MakkiWebsite() {
         <div className="flex flex-col items-center">
           <img
             src={`${import.meta.env.BASE_URL}data/makki.jpg`}
-            alt="Makki Khochani"
+            alt="Makki Khorchani"
             className="w-28 h-28 rounded-full border-4 border-yellow-300 object-cover"
           />
           <div className="mt-4 flex flex-col items-start gap-2 text-sm">
@@ -70,7 +70,7 @@ export default function MakkiWebsite() {
           </div>
         </div>
         <div>
-          <h1 className="text-3xl font-bold">Makki Khochani</h1>
+          <h1 className="text-3xl font-bold">Makki Khorchani</h1>
           <p className="text-sm">Research Assistant Professor</p>
           <p className="text-sm">School of Natural Resources, University of Nebraska-Lincoln</p>
           <p className="text-sm text-blue-800">mkhorchani2@unl.edu</p>
@@ -78,10 +78,10 @@ export default function MakkiWebsite() {
       </header>
 
       {/* Story Section */}
-      <section className="mt-4 mb-2 max-w-3xl mx-auto">
+      <section className="mt-2 mb-2 max-w-3xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4">Story</h2>
         <p className="text-md">
-          I am a Research Assistant Professor at the University of Nebraska–Lincoln, passionate about understanding how ecosystems and climate interact. My work aims to find sustainable, data-driven solutions that balance environmental health with human needs — particularly in arid and semi-arid regions. My research combines satellite remote sensing, field experiments, and environmental modeling to measure real evapotranspiration, estimate ecosystem productivity, and guide climate-smart decision-making.
+          Born in Tunisia in the southern region of Tataouine (yes! Same as Star wars Tatooine), I got my agricultural engineering degree, then moved to Spain for my master (Integrated planning and natural resources) and PhD (Geography) degrees. I am currently a Research Assistant Professor at the School of Natural Resources at the University of Nebraska–Lincoln, passionate about understanding how ecosystems and climate interact. My work aims to find sustainable, data-driven solutions that balance environmental health with human needs — particularly in arid and semi-arid regions. My research combines satellite remote sensing, field experiments, and environmental modeling to measure real evapotranspiration, estimate ecosystem productivity, and guide climate-smart decision-making.
         </p>
       </section>
 
@@ -163,7 +163,7 @@ export default function MakkiWebsite() {
       )}
 
       <footer className="text-center text-sm text-gray-600 mt-12">
-        <p>© {new Date().getFullYear()} Makki Khochani</p>
+        <p>© {new Date().getFullYear()} Makki Khorchani</p>
       </footer>
     </div>
   );
