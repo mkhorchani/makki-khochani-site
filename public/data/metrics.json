@@ -4,8 +4,8 @@
   "h_index5y": 15,
   "i10_index": 19,
   "i10_index5y": 19,
-  "citations": 639,
-  "citations5y": 595,
+  "citations": 642,
+  "citations5y": 598,
   "citations_by_year": [
     {
       "year": "2018",
@@ -37,7 +37,7 @@
     },
     {
       "year": "2025",
-      "citations": 40
+      "citations": 43
     }
   ]
 }
