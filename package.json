@@ -1,8 +1,8 @@
 {
-  "name": "makki-khochani-site",
+  "name": "makki-khorchani-site",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://mkhorchani.github.io/makki-khochani-site",
+  "homepage": "https://mkhorchani.github.io/makki-khorchani-site",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
